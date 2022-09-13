@@ -1,26 +1,35 @@
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
 
 function App() {
 
+  const today = new Date();
   const expenseData = [
     {
-      date: new Date(),
-      title: 'Buceta',
+      date: today,
+      title: 'Title1',
       amount: 1000.00,
     },    
     {
-      date: new Date(),
-      title: 'Cacete',
+      date: today,
+      title: 'Title2',
       amount: 2000.00,
+    },  
+    {
+      date: today,
+      title: 'Title3',
+      amount: 3000.00,
+    },    
+    {
+      date: today,
+      title: 'Title4',
+      amount: 4000.00,
     }
   ];
 
   return (
     <div>
       <h2>Let's get started!</h2>
-      {expenseData.map((ex) => (
-        <ExpenseItem title={ex.title} date={ex.date} amount={ex.amount}></ExpenseItem>
-      ))}
+      <Expenses items={expenseData}/>
     </div>
   );
 }
