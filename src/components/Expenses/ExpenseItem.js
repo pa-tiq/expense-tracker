@@ -19,11 +19,23 @@ function ExpenseItem(props){
     });
   }
 
-  function save(e){
+  function handleSubmit(e){
     e.preventDefault();
+    console.log(e.target);
     const input = e.target.firstChild.value;
     setTitle(input);
     setEdit(null);
+  }
+
+  function handleBlur(e){
+    console.log("lost focus");
+    setEdit(null);
+  }
+
+  function handleKeyDown(e){
+    if(e.key == "Escape"){
+      setEdit(null);
+    }
   }
 
   const editTitleOnDoubleClick = (
@@ -31,7 +43,7 @@ function ExpenseItem(props){
         {
           edit ?
             <div id={props.idx}>
-              <form onSubmit={save}> 
+              <form onSubmit={handleSubmit} onBlur={handleBlur} onKeyDown={handleKeyDown}> 
                 <input type="text" className='input' defaultValue={title}/>
               </form>
             </div>
