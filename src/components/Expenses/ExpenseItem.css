@@ -17,6 +17,16 @@
   flex: 1;
 }
 
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: #6a6868;
+  font-size: 1.25rem;
+  color: white;
+}
+
 .expense-item h2 {
   color: #3a3a3a;
   font-size: 1rem;
