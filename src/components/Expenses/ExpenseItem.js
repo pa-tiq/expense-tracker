@@ -6,7 +6,7 @@ import React from 'react';
 function ExpenseItem(props){
 
   const useState = React.useState;
-  const [data,setData] = useState(props);
+  const [title,setTitle] = useState(props.title);
   const [edit,setEdit] = useState(null);
 
   function clone(o){
@@ -22,9 +22,7 @@ function ExpenseItem(props){
   function save(e){
     e.preventDefault();
     const input = e.target.firstChild.value;
-    const dataCopy = clone(data);
-    dataCopy.title = input;
-    setData(dataCopy);
+    setTitle(input);
     setEdit(null);
   }
 
@@ -32,13 +30,13 @@ function ExpenseItem(props){
     <h2 onDoubleClick={showEditor}>
         {
           edit ?
-            <div id={data.idx}>
+            <div id={props.idx}>
               <form onSubmit={save}> 
-                <input type="text" className='input' defaultValue={data.title}/>
+                <input type="text" className='input' defaultValue={title}/>
               </form>
             </div>
           : 
-            <div>{data.title}</div>
+            <div>{title}</div>
         }
     </h2>
   );
@@ -48,7 +46,7 @@ function ExpenseItem(props){
       <ExpenseDate date={props.date}/>
       <div className='expense-item__description'>
         {editTitleOnDoubleClick}
-        <div className='expense-item__price'>{data.amount}</div>
+        <div className='expense-item__price'>{props.amount}</div>
       </div>
     </Card>
   );
