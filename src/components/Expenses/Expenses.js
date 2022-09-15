@@ -34,6 +34,7 @@ function Expenses(props){
       <ExpensesFilter onFilterChange={filterChangeHandler} />
       {filteredData.map((ex) => (
         <ExpenseItem
+          key={ex.id}
           id={ex.id}
           title={ex.title}
           date={ex.date}
