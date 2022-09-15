@@ -6,7 +6,6 @@ const NewExpense = (props) => {
   const addExpenseHandler = (newExpense) => {
     const expense = {
       ...newExpense,
-      id: props.id
     }
     props.onAddExpense(expense);
   }

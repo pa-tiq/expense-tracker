@@ -13,6 +13,7 @@ function ExpenseItem(props){
   useEffect(() => {
     if(inputForm.current) inputForm.current.focus();
   },[edit]);
+  
 
   function showEditor(e){
     setEdit({
