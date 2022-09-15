@@ -32,7 +32,7 @@ const NewExpenseForm = (props) => {
     setTitle(e.target.value);
   };
   const amountChangeHandler = (e) => {
-    setAmount(e.target.value);
+    setAmount(parseFloat(e.target.value));
   };
   const dateChangeHandler = (e) => {
     setDate(e.target.value);

@@ -11,6 +11,10 @@ function ExpenseItem(props){
   const inputForm = useRef(null);
 
   useEffect(() => {
+    setTitle(props.title);
+  },[props.title]);
+
+  useEffect(() => {
     if(inputForm.current) inputForm.current.focus();
   },[edit]);
   
