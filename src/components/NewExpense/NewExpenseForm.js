@@ -25,9 +25,9 @@ const NewExpenseForm = (props) => {
   //  });
   //}
 
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [title, setTitle] = useState('');
+  const [amount, setAmount] = useState('');
+  const [date, setDate] = useState('');
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
   };
@@ -84,7 +84,11 @@ const NewExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
+        {((title != '') && (amount != '') && (date != '')) ?
+          <button type="submit">Add Expense</button>
+        :
+          <button type="submit" disabled>Add Expense</button>
+        }        
       </div>
     </form>
   );
