@@ -17,7 +17,7 @@ function Expenses(props){
 
   useEffect(() => {
     if(filterYear){
-      const filterData =  expenses.filter((ex) => ex.date.getFullYear().toString() == filterYear);
+      const filterData =  expenses.filter((ex) => ex.date.getFullYear().toString() === filterYear);
       setFilteredData(filterData);
     }
     else{
