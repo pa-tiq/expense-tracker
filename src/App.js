@@ -6,7 +6,7 @@ const today = new Date();
 const initialExpenseData = [
   {
     title: 'Title1',
-    amount: 1000.00,
+    amount: 1000.50,
     date: today,    
   },    
   {
@@ -35,11 +35,8 @@ function App() {
   const [expenseData,setExpenseData] = useState(initialExpenseData);  
 
   const addExpenseHandler = (newExpense) => {
-    console.log("App.js newExpense",newExpense);
     setExpenseData((prevExpenses) => {
       newExpense.id = prevExpenses.length;
-      console.log("App.js prevExpenses",prevExpenses);
-      console.log("App.js newExpense,...prevExpenses",[newExpense,...prevExpenses]);
       return [newExpense,...prevExpenses];
     });
   }

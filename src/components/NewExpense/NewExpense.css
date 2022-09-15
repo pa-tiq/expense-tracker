@@ -45,7 +45,8 @@
   background-color: #40005d;
   color: white;
   border-radius: 12px;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .new-expense button:hover,

@@ -62,7 +62,7 @@ function ExpenseItem(props){
       <ExpenseDate date={props.date}/>
       <div className='expense-item__description'>
         {editTitleOnDoubleClick}
-        <div className='expense-item__price'>{props.amount}</div>
+        <div className='expense-item__price'>${props.amount.toFixed(2)}</div>
       </div>
     </Card>
   );

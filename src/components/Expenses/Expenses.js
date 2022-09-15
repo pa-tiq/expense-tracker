@@ -30,13 +30,18 @@ function Expenses(props){
   }
 
   return (
-    <Card className='expenses'>
-      <ExpensesFilter onFilterChange={filterChangeHandler}/>
+    <Card className="expenses">
+      <ExpensesFilter onFilterChange={filterChangeHandler} />
       {filteredData.map((ex) => (
-        <ExpenseItem id={ex.id} title={ex.title} date={ex.date} amount={ex.amount}/>
+        <ExpenseItem
+          id={ex.id}
+          title={ex.title}
+          date={ex.date}
+          amount={ex.amount}
+        />
       ))}
     </Card>
-  )
+  );
 }
 
 export default Expenses;
