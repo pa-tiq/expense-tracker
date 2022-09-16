@@ -25,9 +25,9 @@ const NewExpenseForm = (props) => {
   //  });
   //}
 
-  const [title, setTitle] = useState('');
-  const [amount, setAmount] = useState('');
-  const [date, setDate] = useState('');
+  const [title, setTitle] = useState("");
+  const [amount, setAmount] = useState("");
+  const [date, setDate] = useState("");
   const titleChangeHandler = (e) => {
     setTitle(e.target.value);
   };
@@ -46,28 +46,39 @@ const NewExpenseForm = (props) => {
       date: new Date(date),
     };
     props.onAddExpense(enteredData);
-    setTitle('');
-    setAmount('');
-    setDate('');
+    setTitle("");
+    setAmount("");
+    setDate("");
   };
 
   const cancelHandler = () => {
-    setTitle('');
-    setAmount('');
-    setDate('');
+    setTitle("");
+    setAmount("");
+    setDate("");
     props.onCancel();
-  }
+  };
+
+  const hideOrShow = {
+    opacity: props.hidden ? "0" : "1",
+    position: props.hidden ? "static" : "static",
+    visibility: props.hidden ? "hidden" : "visible",
+    translate: props.hidden? "translate(0px,0px)" : "translate(0px,-67px)",
+
+  };
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="new-expense__controls">
+      <div
+        className="new-expense__controls"
+        style={{
+          opacity: hideOrShow.opacity,
+          visibility: hideOrShow.visibility,
+          transform: hideOrShow.translate,
+        }}
+      >
         <div className="new-expense__control">
           <label>Title</label>
-          <input 
-            type="text" 
-            onChange={titleChangeHandler} 
-            value={title} 
-          />
+          <input type="text" onChange={titleChangeHandler} value={title} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -76,7 +87,7 @@ const NewExpenseForm = (props) => {
             min="0.00"
             step="0.01"
             onChange={amountChangeHandler}
-            value={amount} 
+            value={amount}
           />
         </div>
         <div className="new-expense__control">
@@ -86,17 +97,28 @@ const NewExpenseForm = (props) => {
             min="2019-01-01"
             max="2022-12-31"
             onChange={dateChangeHandler}
-            value={date} 
+            value={date}
           />
         </div>
       </div>
-      <div className="new-expense__actions">
-        <button type="button" onClick={cancelHandler}>Cancel</button>
-        {((title != '') && (amount != '') && (date != '')) ?
+      <div
+        className="new-expense__actions"
+        style={{
+          opacity: hideOrShow.opacity,
+          visibility: hideOrShow.visibility,
+          transform: hideOrShow.translate,
+        }}
+      >
+        <button type="button" onClick={cancelHandler}>
+          Cancel
+        </button>
+        {title != "" && amount != "" && date != "" ? (
           <button type="submit">Add Expense</button>
-        :
-          <button type="submit" disabled>Add Expense</button>
-        }        
+        ) : (
+          <button type="submit" disabled>
+            Add Expense
+          </button>
+        )}
       </div>
     </form>
   );

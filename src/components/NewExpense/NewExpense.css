@@ -5,6 +5,7 @@
   margin-bottom: 1rem;
   text-align: left;
   padding: 0.4rem 0.6rem;
+  transition: all 0.1s linear;
 }
 
 .new-expense__control label {
@@ -24,6 +25,7 @@
 
 .new-expense__actions {
   text-align: right;
+  transition: all 0.1s linear;
 }
 
 .new-expense {
@@ -31,10 +33,13 @@
   padding: 1rem;
   margin: 2rem auto;
   width: 50rem;
+  height: 5.7rem;
   max-width: 95%;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  transition: all 1s ease-out;
+  z-index: 1;
 }
 
 .new-expense button {
@@ -47,12 +52,16 @@
   border-radius: 12px;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
+  width:auto ;
+  transition: all 0.1s linear;
+  z-index: 2;
 }
 
 .new-expense button:hover,
 .new-expense button:active {
   background-color: #510674;
   border-color: #510674;
+  transition: all 0.1s linear;
 }
 
 .new-expense button:disabled {
