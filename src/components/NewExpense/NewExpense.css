@@ -66,6 +66,7 @@
 .new-expense button:disabled {
   background-color: #bfacc8;
   border-color: #bda5c8;
+  cursor: not-allowed;
 }
 
 .new-expense button.alternative {
