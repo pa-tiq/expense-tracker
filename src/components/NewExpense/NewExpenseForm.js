@@ -78,7 +78,7 @@ const NewExpenseForm = (props) => {
       >
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} value={title} />
+          <input type="text" maxLength='32' onChange={titleChangeHandler} value={title} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -112,7 +112,7 @@ const NewExpenseForm = (props) => {
         <button type="button" onClick={cancelHandler}>
           Cancel
         </button>
-        {title != "" && amount != "" && date != "" ? (
+        {title !== "" && amount !== "" && date !== "" ? (
           <button type="submit">Add Expense</button>
         ) : (
           <button type="submit" disabled>
