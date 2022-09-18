@@ -36,11 +36,11 @@ function App() {
 
   const addExpenseHandler = (newExpense) => {
     setExpenseData((prevExpenses) => {
-      let biggest = 0;
+      let biggestId = 0;
       prevExpenses.forEach((ex) => {
-        if(ex.id > biggest) biggest = ex.id;
+        if(ex.id > biggestId) biggestId = ex.id;
       })
-      newExpense.id = ++biggest;
+      newExpense.id = ++biggestId;
       return [newExpense, ...prevExpenses];
     });
   };
