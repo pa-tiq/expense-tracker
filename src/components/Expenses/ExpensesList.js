@@ -15,6 +15,8 @@ const ExpensesList = (props) => {
           title={ex.title}
           date={ex.date}
           amount={ex.amount}
+          removeExpenseActive={props.removeExpenseActive}
+          removeExpenseHandler={props.removeExpenseHandler}
         />
       ));
 

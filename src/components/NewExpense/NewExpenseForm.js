@@ -63,7 +63,6 @@ const NewExpenseForm = (props) => {
     position: props.hidden ? "static" : "static",
     visibility: props.hidden ? "hidden" : "visible",
     translate: props.hidden? "translate(0px,0px)" : "translate(0px,-67px)",
-
   };
 
   return (

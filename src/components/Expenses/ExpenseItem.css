@@ -45,6 +45,45 @@
   border-radius: 12px;
 }
 
+.expense-item button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 0px solid #40005d;
+  background-color: #40005d;
+  color: white;
+  border-radius: 100px;
+  margin-right: 0.2rem;
+  margin-left: 0.7rem;
+  margin-bottom: 0.5rem;
+  width:auto ;
+  transition: all 0.1s linear;
+}
+
+.expense-item button:hover,
+.expense-item button:active {
+  background-color: #510674;
+  border-color: #510674;
+  transition: all 0.1s linear;
+}
+
+.expense-item button:disabled {
+  background-color: #bfacc8;
+  border-color: #bda5c8;
+  cursor: not-allowed;
+}
+
+.expense-item button.alternative {
+  color: #220131;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.expense-item button.alternative:hover,
+.expense-item button.alternative:active {
+  background-color: #ddb3f8;
+}
+
 @media (min-width: 580px) {
   .expense-item__description {
     flex-direction: row;

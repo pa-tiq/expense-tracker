@@ -32,7 +32,8 @@ initialExpenseData.map((exp,id) => {
 
 function App() {
 
-  const [expenseData,setExpenseData] = useState(initialExpenseData);  
+  const [expenseData,setExpenseData] = useState(initialExpenseData);
+  const [removeExpenseActive,setRemoveExpenseActive] = useState(false);
 
   const addExpenseHandler = (newExpense) => {
     setExpenseData((prevExpenses) => {
@@ -40,11 +41,15 @@ function App() {
       return [newExpense,...prevExpenses];
     });
   }
+
+  const removeExpenseActiveHandler = (isActive) => {
+    setRemoveExpenseActive(isActive);
+  }
   
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler}/>
-      <Expenses items={expenseData}/>
+      <NewExpense onAddExpense={addExpenseHandler} onRemoveExpenseActive={removeExpenseActiveHandler}/>
+      <Expenses items={expenseData} removeExpenseActive={removeExpenseActive}/>
     </div>
   );
 }

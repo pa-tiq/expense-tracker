@@ -64,6 +64,12 @@ function ExpenseItem(props) {
     </h2>
   );
 
+  const buttonRemoveExpense = (
+    <button type="button" id={props.id} onClick={props.removeExpenseHandler}>
+      X
+    </button>
+  );
+
   return (
     <li>
       <Card className="expense-item">
@@ -72,6 +78,7 @@ function ExpenseItem(props) {
           {editTitleOnDoubleClick}
         </div>
         <div className="expense-item__price">${props.amount.toFixed(2)}</div>
+        {props.removeExpenseActive && buttonRemoveExpense}
       </Card>
     </li>
   );

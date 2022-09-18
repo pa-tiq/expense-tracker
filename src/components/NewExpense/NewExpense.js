@@ -1,9 +1,10 @@
 import "./NewExpense.css";
 import NewExpenseForm from "./NewExpenseForm";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const NewExpense = (props) => {
   const [showNewExpenseForm, setShowNewExpenseForm] = useState(false);
+  const [showRemoveExpenseForm, setShowRemoveExpenseForm] = useState(false);
 
   const addExpenseHandler = (newExpense) => {
     const expense = {
@@ -12,8 +13,17 @@ const NewExpense = (props) => {
     props.onAddExpense(expense);
   };
 
+  useEffect(() => {
+    props.onRemoveExpenseActive(showRemoveExpenseForm);
+  },[showRemoveExpenseForm]);
+
   const handleShowNewExpenseForm = () => {
     setShowNewExpenseForm(true);
+  };  
+  
+  const handleShowRemoveExpenseForm = () => {
+    showRemoveExpenseForm ? setShowRemoveExpenseForm(false) 
+    :setShowRemoveExpenseForm(true);
   };
 
   const cancelHandler = () => {
@@ -22,9 +32,12 @@ const NewExpense = (props) => {
 
   const hideOrShow = {
     cardHeight: showNewExpenseForm ? "18rem" : "5.7rem",
-    buttonOpacity: showNewExpenseForm ? "0" : "1",
-    buttonVisibility: showNewExpenseForm ? "hidden" : "visible",
+    buttonNewOpacity: (showNewExpenseForm || showRemoveExpenseForm) ? "0" : "1",
+    buttonRemOpacity: showNewExpenseForm ? "0" : "1",
+    buttonNewVisibility: (showNewExpenseForm || showRemoveExpenseForm) ? "hidden" : "visible",
+    buttonRemVisibility: showNewExpenseForm ? "hidden" : "visible",
     hiddenForm: showNewExpenseForm ? false : true,
+    buttonRemTransform: showRemoveExpenseForm ? "translate(-90px,0px)" : "translate(0px,0px)",
   };
 
   return (
@@ -33,12 +46,24 @@ const NewExpense = (props) => {
         type="button"
         onClick={handleShowNewExpenseForm}
         style={{
-          opacity: hideOrShow.buttonOpacity,
-          visibility: hideOrShow.buttonVisibility,
+          opacity: hideOrShow.buttonNewOpacity,
+          visibility: hideOrShow.buttonNewVisibility,
         }}
       >
         New Expense
       </button>
+      <button
+        type="button"
+        onClick={handleShowRemoveExpenseForm}
+        style={{
+          opacity: hideOrShow.buttonRemOpacity,
+          visibility: hideOrShow.buttonRemVisibility,
+          transform: hideOrShow.buttonRemTransform,
+        }}
+      >
+        {showRemoveExpenseForm ? '  Cancel  ' : 'Remove Expense'}
+      </button>
+
       <NewExpenseForm
         onAddExpense={addExpenseHandler}
         onCancel={cancelHandler}
