@@ -28,12 +28,6 @@ function Expenses(props) {
   const filterChangeHandler = (selectedYear) => {
     setFilterYear(selectedYear);
   }; 
-  const removeExpenseHandler = (expense) => {
-    const removeExpense = expenses.filter(
-      (ex) => ex.id !== +expense.target.id
-    );
-    setExpenses(removeExpense);
-  };
 
   return (
     <Card className="expenses">
@@ -42,7 +36,7 @@ function Expenses(props) {
       <ExpensesList
         items={filteredData}
         removeExpenseActive={props.removeExpenseActive}
-        removeExpenseHandler={removeExpenseHandler}
+        removeExpenseHandler={props.removeExpenseHandler}
       />
     </Card>
   );

@@ -42,14 +42,21 @@ function App() {
     });
   }
 
-  const removeExpenseActiveHandler = (isActive) => {
+  const removeExpenseHandler = (expense) => {
+    const removeExpense = expenseData.filter(
+      (ex) => ex.id !== +expense.target.id
+    );
+    setExpenseData(removeExpense);
+  };
+  
+  const removeExpenseButtonActiveHandler = (isActive) => {
     setRemoveExpenseActive(isActive);
   }
   
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} onRemoveExpenseActive={removeExpenseActiveHandler}/>
-      <Expenses items={expenseData} removeExpenseActive={removeExpenseActive}/>
+      <NewExpense onAddExpense={addExpenseHandler} onRemoveExpenseActive={removeExpenseButtonActiveHandler}/>
+      <Expenses items={expenseData} removeExpenseActive={removeExpenseActive} removeExpenseHandler={removeExpenseHandler}/>
     </div>
   );
 }
