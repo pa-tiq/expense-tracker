@@ -14,7 +14,7 @@ const NewExpense = (props) => {
   };
 
   useEffect((props) => {
-    props.onRemoveExpenseActive(showRemoveExpenseForm);
+    props?.onRemoveExpenseActive(showRemoveExpenseForm);
   },[showRemoveExpenseForm]);
 
   const handleShowNewExpenseForm = () => {
