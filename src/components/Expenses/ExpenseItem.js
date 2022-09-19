@@ -35,7 +35,7 @@ function ExpenseItem(props) {
   }
 
   function handleKeyDown(e) {
-    if (e.key == "Escape") {
+    if (e.key === "Escape") {
       setEdit(null);
     }
   }

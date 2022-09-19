@@ -3,32 +3,32 @@ import NewExpense from "./components/NewExpense/NewExpense";
 import React, { useState } from "react";
 
 const today = new Date();
-const initialExpenseData = [
+let initialExpenseData = [
   {
+    id:1,
     title: "Title1",
     amount: 1000.5,
     date: today,
   },
   {
+    id:2,
     title: "Title2",
     amount: 2000.0,
     date: today,
   },
   {
+    id:3,
     title: "Title3",
     amount: 3000.0,
     date: today,
   },
   {
+    id:4,
     title: "Title4",
     amount: 4000.0,
     date: today,
   },
 ];
-
-initialExpenseData.map((exp, id) => {
-  exp.id = id;
-});
 
 function App() {
   const [expenseData, setExpenseData] = useState(initialExpenseData);
