@@ -1,6 +1,6 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 
 const today = new Date();
 let initialExpenseData = [
@@ -57,7 +57,7 @@ function App() {
   };
 
   return (
-    <div>
+    <Fragment>
       <NewExpense
         onAddExpense={addExpenseHandler}
         onRemoveExpenseActive={removeExpenseButtonActiveHandler}
@@ -67,7 +67,7 @@ function App() {
         removeExpenseActive={removeExpenseActive}
         removeExpenseHandler={removeExpenseHandler}
       />
-    </div>
+    </Fragment>
   );
 }
 
